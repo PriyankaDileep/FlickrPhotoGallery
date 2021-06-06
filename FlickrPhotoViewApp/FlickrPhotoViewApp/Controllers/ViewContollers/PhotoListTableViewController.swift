@@ -11,12 +11,20 @@ class PhotoListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        PhotoDataController.shared.getPhotosFromFlickrAPI { (result) in
+            switch result {
+            case .success(let photoInfo):
+                print(photoInfo)
+            case .failure(let error):
+               
+                print(error.localizedDescription)
+            }
+        }
     }
 
     // MARK: - Table view data source
