@@ -1,9 +1,8 @@
 # FlickrPhotoGallery
-This app is tried to develop using MVVM architecture . But I am not so much confident in using MVVM . So I have tried a little bit of MVVm as well as MVC.
+Improvements
 
-Possible Improvements
-
-1. Need to move some duplicated codes save and read data from usedefaults in Photos as well as Favourite VC.
-2. Didn't try using cache for already downloaded image . 
-
-Total time spend : 12 hours
+1.Some parts of the app do not follow MVVM strictly, doesn't have tests, or a more sophisticated form of dependency injection but decided to ignore it to save some time
+2.View Models and View Controllers communication is based on closures, could've been cleaner using RxSwift or Swift's Combine Framework
+3.A very small part of the app has duplicated code 
+4.View Controller identifiers are inline string, would've been better to use a struct with all the identifiers 
+5. Due to some lime limitation could achieve cache functionality
