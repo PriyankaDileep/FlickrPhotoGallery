@@ -23,6 +23,9 @@
 		D4819ACC266CDF7D004F571B /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819ACB266CDF7D004F571B /* PhotoTableViewCell.swift */; };
 		D4819AD5266D05B4004F571B /* PhotoDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819AD4266D05B4004F571B /* PhotoDisplaying.swift */; };
 		D4819ADD266DBAAB004F571B /* FavouritePhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819ADC266DBAAB004F571B /* FavouritePhotoTableViewCell.swift */; };
+		D4819AE3266DDE07004F571B /* PhotosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819AE2266DDE07004F571B /* PhotosListViewModel.swift */; };
+		D4819AEB266DE05D004F571B /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819AEA266DE05D004F571B /* NetworkErrors.swift */; };
+		D4819AF1266DE3CC004F571B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819AF0266DE3CC004F571B /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		D4819ACB266CDF7D004F571B /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		D4819AD4266D05B4004F571B /* PhotoDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDisplaying.swift; sourceTree = "<group>"; };
 		D4819ADC266DBAAB004F571B /* FavouritePhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePhotoTableViewCell.swift; sourceTree = "<group>"; };
+		D4819AE2266DDE07004F571B /* PhotosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModel.swift; sourceTree = "<group>"; };
+		D4819AEA266DE05D004F571B /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		D4819AF0266DE3CC004F571B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,8 @@
 		D47F431C266A6205008B6DA8 /* FlickrPhotoViewApp */ = {
 			isa = PBXGroup;
 			children = (
+				D4819AEF266DE3A4004F571B /* Extensions */,
+				D4819AE1266DDD95004F571B /* ViewModels */,
 				D4819ACA266CDF4C004F571B /* View */,
 				D47F438A266C795F008B6DA8 /* Services */,
 				D47F4361266B9FE5008B6DA8 /* Models */,
@@ -187,6 +195,7 @@
 			children = (
 				D4819AD3266D058C004F571B /* PhotoDisplayProtocol */,
 				D47F438B266C796E008B6DA8 /* APIConstants */,
+				D4819AEA266DE05D004F571B /* NetworkErrors.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -214,6 +223,22 @@
 				D4819AD4266D05B4004F571B /* PhotoDisplaying.swift */,
 			);
 			path = PhotoDisplayProtocol;
+			sourceTree = "<group>";
+		};
+		D4819AE1266DDD95004F571B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D4819AE2266DDE07004F571B /* PhotosListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D4819AEF266DE3A4004F571B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D4819AF0266DE3CC004F571B /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,9 +375,12 @@
 				D47F435D266B8681008B6DA8 /* FavouritesTableViewController.swift in Sources */,
 				D4819AD5266D05B4004F571B /* PhotoDisplaying.swift in Sources */,
 				D47F4320266A6205008B6DA8 /* SceneDelegate.swift in Sources */,
+				D4819AF1266DE3CC004F571B /* UIViewController+Extension.swift in Sources */,
 				D47F4382266C7317008B6DA8 /* PhotoDataController.swift in Sources */,
+				D4819AE3266DDE07004F571B /* PhotosListViewModel.swift in Sources */,
 				D47F4398266C79A7008B6DA8 /* APIConstants.swift in Sources */,
 				D4819ACC266CDF7D004F571B /* PhotoTableViewCell.swift in Sources */,
+				D4819AEB266DE05D004F571B /* NetworkErrors.swift in Sources */,
 				D47F4355266B865A008B6DA8 /* PhotoListTableViewController.swift in Sources */,
 				D4819ADD266DBAAB004F571B /* FavouritePhotoTableViewCell.swift in Sources */,
 				D47F4363266BA001008B6DA8 /* PhotosModel.swift in Sources */,

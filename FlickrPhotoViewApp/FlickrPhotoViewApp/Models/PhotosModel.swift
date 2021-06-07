@@ -47,10 +47,4 @@ struct Photo: Codable, Equatable {
             self.secret = try valueContainer.decode(String.self,
             forKey: CodingKeys.secret)
         }
-    
-    
-//    func flickrImageURL() -> String {
-//        let path = "https://live.staticflickr.com/\(server)/\(id)_\(secret).jpg"
-//        return path
-//    }
 }
