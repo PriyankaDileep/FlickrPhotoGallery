@@ -26,6 +26,7 @@
 		D4819AE3266DDE07004F571B /* PhotosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819AE2266DDE07004F571B /* PhotosListViewModel.swift */; };
 		D4819AEB266DE05D004F571B /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819AEA266DE05D004F571B /* NetworkErrors.swift */; };
 		D4819AF1266DE3CC004F571B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819AF0266DE3CC004F571B /* UIViewController+Extension.swift */; };
+		D4819B0E266E1DD4004F571B /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819B0D266E1DD4004F571B /* SpinnerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		D4819AE2266DDE07004F571B /* PhotosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModel.swift; sourceTree = "<group>"; };
 		D4819AEA266DE05D004F571B /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		D4819AF0266DE3CC004F571B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		D4819B0D266E1DD4004F571B /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			children = (
 				D47F435C266B8681008B6DA8 /* FavouritesTableViewController.swift */,
 				D47F4354266B865A008B6DA8 /* PhotoListTableViewController.swift */,
+				D4819B0D266E1DD4004F571B /* SpinnerViewController.swift */,
 			);
 			path = ViewContollers;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				D47F435D266B8681008B6DA8 /* FavouritesTableViewController.swift in Sources */,
 				D4819AD5266D05B4004F571B /* PhotoDisplaying.swift in Sources */,
 				D47F4320266A6205008B6DA8 /* SceneDelegate.swift in Sources */,
+				D4819B0E266E1DD4004F571B /* SpinnerViewController.swift in Sources */,
 				D4819AF1266DE3CC004F571B /* UIViewController+Extension.swift in Sources */,
 				D47F4382266C7317008B6DA8 /* PhotoDataController.swift in Sources */,
 				D4819AE3266DDE07004F571B /* PhotosListViewModel.swift in Sources */,

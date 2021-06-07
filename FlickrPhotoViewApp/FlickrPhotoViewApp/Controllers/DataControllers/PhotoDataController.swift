@@ -11,9 +11,10 @@ import UIKit
 
 final class PhotoDataController {
     
-static let shared: PhotoDataController = PhotoDataController()
+    static let shared: PhotoDataController = PhotoDataController()
+    private let cache = NSCache<NSString, UIImage>()
     
-private func flickrURLFromParameters() -> URL {
+    private func flickrURLFromParameters() -> URL {
         
         // Build base URL
         var components = URLComponents()
@@ -25,9 +26,9 @@ private func flickrURLFromParameters() -> URL {
         components.queryItems = [URLQueryItem]()
         
         // Query components
-    components.queryItems!.append(URLQueryItem(name: APIConstants.FlickrAPIKeys.getPublicPhotoMethod, value: APIConstants.FlickrAPIValues.getPublicPhotoMethod));
+        components.queryItems!.append(URLQueryItem(name: APIConstants.FlickrAPIKeys.getPublicPhotoMethod, value: APIConstants.FlickrAPIValues.getPublicPhotoMethod));
         components.queryItems!.append(URLQueryItem(name: APIConstants.FlickrAPIKeys.APIKey, value: APIConstants.FlickrAPIValues.APIKey));
-       components.queryItems!.append(URLQueryItem(name: APIConstants.FlickrAPIKeys.userID, value: APIConstants.FlickrAPIValues.userID));
+        components.queryItems!.append(URLQueryItem(name: APIConstants.FlickrAPIKeys.userID, value: APIConstants.FlickrAPIValues.userID));
         components.queryItems!.append(URLQueryItem(name: APIConstants.FlickrAPIKeys.ResponseFormat, value: APIConstants.FlickrAPIValues.ResponseFormat));
         components.queryItems!.append(URLQueryItem(name: APIConstants.FlickrAPIKeys.Extras, value: APIConstants.FlickrAPIValues.MediumURL));
         components.queryItems!.append(URLQueryItem(name: APIConstants.FlickrAPIKeys.SafeSearch, value: APIConstants.FlickrAPIValues.SafeSearch));
@@ -35,8 +36,8 @@ private func flickrURLFromParameters() -> URL {
         return components.url!
     }
     
-     func getPhotosFromFlickrAPI(completion: @escaping (Result<PhotosModel,
-                                                                      Error>) -> Void) {
+    func getPhotosFromFlickrAPI(completion: @escaping (Result<PhotosModel,
+                                                              Error>) -> Void) {
         let session = URLSession.shared
         let baseURL = flickrURLFromParameters()
         print("URL: \(baseURL)")
@@ -52,7 +53,7 @@ private func flickrURLFromParameters() -> URL {
                     let response = try decoder.decode(PhotosModel.self, from: data)
                     completion(.success(response))
                     print(data)
-
+                    
                 } catch let DecodingError.dataCorrupted(context) {
                     print(context)
                 } catch let DecodingError.keyNotFound(key, context) {
@@ -79,6 +80,7 @@ private func flickrURLFromParameters() -> URL {
     }
     
     func fetchImage(from url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
@@ -91,6 +93,6 @@ private func flickrURLFromParameters() -> URL {
         
         task.resume()
     }
-
-
+    
+    
 }

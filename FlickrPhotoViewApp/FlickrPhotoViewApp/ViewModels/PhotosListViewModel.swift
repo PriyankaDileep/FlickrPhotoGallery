@@ -9,9 +9,6 @@ import Foundation
 
 final class PhotosListViewModel {
     var photosList = [Photo]()
-    
-   
-    
     func fetchPhotos(completion: @escaping (Result<Bool, NetworkErrors>) -> Void) {
         PhotoDataController.shared.getPhotosFromFlickrAPI { (result) in
             switch result {
@@ -19,10 +16,8 @@ final class PhotosListViewModel {
                 self.photosList = photosModel.photos.photo
                 print(self.photosList)
                 DispatchQueue.main.async {
-                    //self.tableView.reloadData()
                     completion(.success(true))
                 }
-                
             case .failure(let error):
                 completion(.failure(error as! NetworkErrors))
                 print(error.localizedDescription)

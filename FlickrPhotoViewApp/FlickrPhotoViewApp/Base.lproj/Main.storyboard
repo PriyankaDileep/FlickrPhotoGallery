@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Photos-->
         <scene sceneID="5lR-1I-Kdy">
             <objects>
                 <tableViewController id="cRc-gS-HDc" customClass="PhotoListTableViewController" customModule="FlickrPhotoViewApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="cRc-gS-HDc" id="Jm6-6a-mRy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="UD0-Es-e8a"/>
+                    <navigationItem key="navigationItem" title="Photos" id="UD0-Es-e8a"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Og8-b3-ONR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,7 +102,7 @@
             </objects>
             <point key="canvasLocation" x="2368.1159420289855" y="-532.36607142857144"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Favourites-->
         <scene sceneID="cdc-aQ-HsB">
             <objects>
                 <tableViewController id="pei-U9-61Z" customClass="FavouritesTableViewController" customModule="FlickrPhotoViewApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -165,7 +165,7 @@
                             <outlet property="delegate" destination="pei-U9-61Z" id="BR5-tb-hbv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="cyj-eD-ZXS"/>
+                    <navigationItem key="navigationItem" title="Favourites" id="cyj-eD-ZXS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sjk-Om-cUp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
