@@ -14,12 +14,12 @@ protocol PhotoDisplaying {
 }
 
 extension PhotoDisplaying {
-    func configure(for item: Photo, storeItemController: PhotoDataController) {
+    func configure(for item: Photo, photoDataController: PhotoDataController) {
         photoTitleLabel.text = item.title
         photoGrapherNameLabel.text = item.name
         photoImageView?.image = UIImage(systemName: "photo")
 
-        storeItemController.fetchImage(from: item.url) { (result) in
+        photoDataController.fetchImage(from: item.url) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let image):

@@ -9,6 +9,7 @@ import UIKit
 
 class PhotoListTableViewController: UITableViewController {
     private var photosList = [Photo]()
+    var gradientLayer:CAGradientLayer!
     var favouriteListArray = [Photo]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +58,14 @@ class PhotoListTableViewController: UITableViewController {
         let item = self.photosList[indexPath.row]
        // cell.photoTitleLabel.text = item.title
        // cell.photoGrapherNameLabel.text = item.name
-        cell.configure(for: item, storeItemController: PhotoDataController.shared)
+        cell.configure(for: item, photoDataController: PhotoDataController.shared)
         if favouriteListArray.contains(item) {
             print("Item found")
-            cell.favouriteButton.setImage(UIImage(systemName: "star.circle"), for:.normal)
+            cell.favouriteButton.setImage(UIImage(systemName: "star.circle.fill"), for:.normal)
                                           
         } else {
             print("not Found")
-            cell.favouriteButton.setImage(UIImage(systemName: "star.circle.fill"), for:.normal)
+            cell.favouriteButton.setImage(UIImage(systemName: "star.circle"), for:.normal)
             
         }
         cell.favouriteButton.tag = indexPath.row
@@ -157,18 +158,31 @@ class PhotoListTableViewController: UITableViewController {
     
     @objc func favouriteButtonTapped(sender:UIButton) {
       
-        let cell = self.tableView.cellForRow(at: IndexPath.init(row: sender.tag, section: 0))
+        //let cell = self.tableView.cellForRow(at: IndexPath.init(row: sender.tag, section: 0))
         let item = self.photosList[sender.tag]
         if favouriteListArray.contains(item) {
             print("Item found")
             favouriteListArray.removeAll { $0 == item}
             sender.setImage(UIImage(systemName: "star.circle"), for:.normal)
+                    
         } else {
             print("not Found")
             favouriteListArray.append(item)
             sender.setImage(UIImage(systemName: "star.circle.fill"), for:.normal)
         }
         saveToUserDefaults(favouriteItems: favouriteListArray)
+        //self.tableView.deleteRows(at: [sender.tag], with: .fade)
+    }
+    
+    func setGradientLayer() {
+        gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.black.withAlphaComponent(1.0).cgColor,
+                                    UIColor.black.withAlphaComponent(0.0).cgColor]
+
+        gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
 }
+ 

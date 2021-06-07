@@ -111,13 +111,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Hss-sT-NWO">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouritePhotoTableviewCell" rowHeight="250" id="Hss-sT-NWO" customClass="FavouritePhotoTableViewCell" customModule="FlickrPhotoViewApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hss-sT-NWO" id="5zB-2p-QPo">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HBA-nt-Ago">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4l-lB-tbT">
+                                            <rect key="frame" x="20" y="225.5" width="374" height="14.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dke-Vn-cXy">
+                                            <rect key="frame" x="354" y="21" width="30" height="34"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuv-Um-tb1">
+                                            <rect key="frame" x="20" y="195" width="374" height="20.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Kuv-Um-tb1" secondAttribute="trailing" constant="20" id="4NV-w0-5SL"/>
+                                        <constraint firstAttribute="bottom" secondItem="e4l-lB-tbT" secondAttribute="bottom" constant="10" id="7iN-Fg-9jK"/>
+                                        <constraint firstItem="Kuv-Um-tb1" firstAttribute="leading" secondItem="5zB-2p-QPo" secondAttribute="leading" constant="20" id="8W6-dz-m0f"/>
+                                        <constraint firstItem="Kuv-Um-tb1" firstAttribute="top" secondItem="dke-Vn-cXy" secondAttribute="bottom" constant="140" id="FaU-BI-0No"/>
+                                        <constraint firstAttribute="trailing" secondItem="e4l-lB-tbT" secondAttribute="trailing" constant="20" id="Kbd-RG-hQ2"/>
+                                        <constraint firstItem="dke-Vn-cXy" firstAttribute="top" secondItem="5zB-2p-QPo" secondAttribute="topMargin" constant="10" id="UsZ-VB-DjZ"/>
+                                        <constraint firstItem="e4l-lB-tbT" firstAttribute="leading" secondItem="5zB-2p-QPo" secondAttribute="leading" constant="20" id="wyg-rx-bRT"/>
+                                        <constraint firstItem="e4l-lB-tbT" firstAttribute="top" secondItem="Kuv-Um-tb1" secondAttribute="bottom" constant="10" id="zWg-dQ-7rB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dke-Vn-cXy" secondAttribute="trailing" constant="10" id="ztG-iu-Fgr"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="favouriteButton" destination="dke-Vn-cXy" id="6Oz-nx-RBQ"/>
+                                    <outlet property="photoGrapherNameLabel" destination="e4l-lB-tbT" id="KOe-kE-e0X"/>
+                                    <outlet property="photoImageView" destination="HBA-nt-Ago" id="f9W-uT-NcZ"/>
+                                    <outlet property="photoTitleLabel" destination="Kuv-Um-tb1" id="8f0-4Z-JAg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

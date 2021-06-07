@@ -22,6 +22,7 @@
 		D47F4398266C79A7008B6DA8 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F4397266C79A7008B6DA8 /* APIConstants.swift */; };
 		D4819ACC266CDF7D004F571B /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819ACB266CDF7D004F571B /* PhotoTableViewCell.swift */; };
 		D4819AD5266D05B4004F571B /* PhotoDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819AD4266D05B4004F571B /* PhotoDisplaying.swift */; };
+		D4819ADD266DBAAB004F571B /* FavouritePhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4819ADC266DBAAB004F571B /* FavouritePhotoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		D47F4397266C79A7008B6DA8 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		D4819ACB266CDF7D004F571B /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		D4819AD4266D05B4004F571B /* PhotoDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDisplaying.swift; sourceTree = "<group>"; };
+		D4819ADC266DBAAB004F571B /* FavouritePhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePhotoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				D4819ACB266CDF7D004F571B /* PhotoTableViewCell.swift */,
+				D4819ADC266DBAAB004F571B /* FavouritePhotoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				D47F4398266C79A7008B6DA8 /* APIConstants.swift in Sources */,
 				D4819ACC266CDF7D004F571B /* PhotoTableViewCell.swift in Sources */,
 				D47F4355266B865A008B6DA8 /* PhotoListTableViewController.swift in Sources */,
+				D4819ADD266DBAAB004F571B /* FavouritePhotoTableViewCell.swift in Sources */,
 				D47F4363266BA001008B6DA8 /* PhotosModel.swift in Sources */,
 				D47F4378266C229F008B6DA8 /* FlickrResponseModel.swift in Sources */,
 			);
