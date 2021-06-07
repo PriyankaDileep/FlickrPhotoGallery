@@ -14,7 +14,7 @@ struct PhotosModel: Codable {
 struct Photos: Codable {
     let photo: [Photo]
 }
-struct Photo: Codable {
+struct Photo: Codable, Equatable {
     var title: String
     var name: String
     var id: String

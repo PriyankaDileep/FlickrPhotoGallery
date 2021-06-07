@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 final class PhotoDataController {
@@ -70,6 +71,24 @@ private func flickrURLFromParameters() -> URL {
                 completion(.failure(error))
             }
         }
+        task.resume()
+    }
+    
+    enum PhotoItemError: Error, LocalizedError {
+        case imageDataMissing
+    }
+    
+    func fetchImage(from url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data, let image = UIImage(data: data) {
+                completion(.success(image))
+            } else {
+                completion(.failure(PhotoItemError.imageDataMissing))
+            }
+        }
+        
         task.resume()
     }
 

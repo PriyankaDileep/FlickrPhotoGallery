@@ -8,7 +8,8 @@
 import UIKit
 
 class PhotoListTableViewController: UITableViewController {
-
+    private var photosList = [Photo]()
+    var favouriteListArray = [Photo]()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -18,36 +19,59 @@ class PhotoListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         PhotoDataController.shared.getPhotosFromFlickrAPI { (result) in
             switch result {
-            case .success(let photoInfo):
-                print(photoInfo)
+            case .success(let photosModel):
+                self.photosList = photosModel.photos.photo
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
             case .failure(let error):
                
                 print(error.localizedDescription)
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        readFromUserDefaults()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.photosList.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
 
         // Configure the cell...
-
+        let item = self.photosList[indexPath.row]
+       // cell.photoTitleLabel.text = item.title
+       // cell.photoGrapherNameLabel.text = item.name
+        cell.configure(for: item, storeItemController: PhotoDataController.shared)
+        if favouriteListArray.contains(item) {
+            print("Item found")
+            cell.favouriteButton.setImage(UIImage(systemName: "star.circle"), for:.normal)
+                                          
+        } else {
+            print("not Found")
+            cell.favouriteButton.setImage(UIImage(systemName: "star.circle.fill"), for:.normal)
+            
+        }
+        cell.favouriteButton.tag = indexPath.row
+        cell.favouriteButton.addTarget(self, action: #selector(favouriteButtonTapped(sender:)), for: .touchUpInside)
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -94,4 +118,57 @@ class PhotoListTableViewController: UITableViewController {
     }
     */
 
+    func updateUI() {
+        
+    }
+    
+    func saveToUserDefaults(favouriteItems:[Photo]) {
+        
+        let favourites = favouriteItems
+        do {
+            // Create JSON Encoder
+            let encoder = JSONEncoder()
+
+            // Encode Note
+            let data = try encoder.encode(favourites)
+
+            // Write/Set Data
+            UserDefaults.standard.set(data, forKey: "favList")
+
+        } catch {
+            print("Unable to Encode Array of Notes (\(error))")
+        }
+    }
+    
+    func readFromUserDefaults() {
+        if let data = UserDefaults.standard.data(forKey: "favList") {
+            do {
+                // Create JSON Decoder
+                let decoder = JSONDecoder()
+
+                // Decode Note
+                favouriteListArray = try decoder.decode([Photo].self, from: data)
+
+            } catch {
+                print("Unable to Decode Notes (\(error))")
+            }
+        }
+    }
+    
+    @objc func favouriteButtonTapped(sender:UIButton) {
+      
+        let cell = self.tableView.cellForRow(at: IndexPath.init(row: sender.tag, section: 0))
+        let item = self.photosList[sender.tag]
+        if favouriteListArray.contains(item) {
+            print("Item found")
+            favouriteListArray.removeAll { $0 == item}
+            sender.setImage(UIImage(systemName: "star.circle"), for:.normal)
+        } else {
+            print("not Found")
+            favouriteListArray.append(item)
+            sender.setImage(UIImage(systemName: "star.circle.fill"), for:.normal)
+        }
+        saveToUserDefaults(favouriteItems: favouriteListArray)
+    }
+    
 }
